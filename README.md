@@ -56,6 +56,8 @@ Select all three animals in the hierarchy and Add Component > Drag the Move Forw
 Edit their speed values and test to see how it looks. Drag all three animals into the Prefabs folder, choosing “Original Prefab”
 
 ## Program:
+# Player Control
+```
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -86,10 +88,34 @@ public class NewBehaviourScript : MonoBehaviour
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
         if(Input.GetKeyDown(KeyCode.Space))
         
+            // Launch a projectile from the player
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         
     }
 }
+```
+# Moving Forward:
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MoveForward : MonoBehaviour
+{
+    public float speed = 10.0f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+    }
+}
+```
 ## Output:
 ![alt text](image.png)
 ## Result:
